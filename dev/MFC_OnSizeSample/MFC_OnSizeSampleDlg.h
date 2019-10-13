@@ -48,10 +48,6 @@ protected:
 	CRect	m_RightButtonRect;
 	CRect	m_LeftButtonRect;
 
-	int m_HDiff;
-	int m_VDiff;
-	int m_WinClientDiff;	//タイトルバーを除く、ウィンドウ領域とクライアント領域の1辺の差分
-	int m_TitleBarHeight;	//タイトルバーのサイズ
 	int m_RightBtnHOffset;	//右ボタンの画面右側からのオフセット(ウィンドウ領域)
 	int m_RightBtnVOffset;	//右ボタンの画面下側からのオフセット(ウィンドウ領域)
 	int m_RightBtnWidth;	//右ボタンのボタンの幅
@@ -62,13 +58,11 @@ protected:
 	int m_LeftBtnHeight;	//左ボタンのボタンの高さ
 
 	//エディットボックスの位置
-	int m_EditBoxTop;		//エディットボックスのトップ座標
 	int m_EditBoxLeft;		//エディットボックスの左側座標
 	int m_EditBoxHOffset;	//エディットボックスの水平方向のオフセット
 	int m_EditBoxVOffset;	//エディットボックスの垂直方向のオフセット
 	int m_EditBoxHeight;	//エディットボックスの高さ
 	//グループフレームの位置
-	int m_FrameTop;			//グループフレームのトップ座標
 	int m_FrameLeft;		//グループフレームの左側座標
 	int m_FrameHOffset;		//グループフレームの水平方向のオフセット
 	int m_FrameVOffset;		//グループフレームの垂直方向のオフセット

@@ -89,7 +89,7 @@ BOOL CMFCOnSizeSampleDlg::OnInitDialog()
 	CRect EditBoxRect = { 0, 0, 0, 0 };
 	this->m_SampleEdit.GetWindowRect(&EditBoxRect);
 	this->ScreenToClient(&EditBoxRect);
-	this->m_EditBoxTop = EditBoxRect.top - DialogClientRect.top;
+	//this->m_EditBoxTop = EditBoxRect.top - DialogClientRect.top;
 	this->m_EditBoxLeft = EditBoxRect.left - DialogClientRect.left;
 	this->m_EditBoxHOffset = DialogClientRect.right - EditBoxRect.right;
 	this->m_EditBoxVOffset = DialogClientRect.bottom - EditBoxRect.bottom;
@@ -99,7 +99,7 @@ BOOL CMFCOnSizeSampleDlg::OnInitDialog()
 	CRect FrameRect = { 0, 0, 0, 0 };
 	this->m_SampleFrame.GetWindowRect(&FrameRect);
 	this->ScreenToClient(&FrameRect);
-	this->m_FrameTop = FrameRect.top - DialogClientRect.top;
+	//this->m_FrameTop = FrameRect.top - DialogClientRect.top;
 	this->m_FrameLeft = FrameRect.left - DialogClientRect.left;
 	this->m_FrameHOffset = DialogClientRect.right - FrameRect.right;
 	this->m_FrameVOffset = DialogClientRect.bottom - FrameRect.bottom;
@@ -109,7 +109,7 @@ BOOL CMFCOnSizeSampleDlg::OnInitDialog()
 	CRect StaticTextRect = { 0, 0, 0, 0 };
 	this->m_StaticEditSample.GetWindowRect(&StaticTextRect);
 	this->ScreenToClient(&StaticTextRect);
-	this->m_StaticTextTop = StaticTextRect.top - DialogClientRect.top;
+	//this->m_StaticTextTop = StaticTextRect.top - DialogClientRect.top;
 	this->m_StaticTextLeft = StaticTextRect.left - DialogClientRect.left;
 	this->m_StaticTextHOffset = DialogClientRect.right - StaticTextRect.right;
 	this->m_StaticTextVOffset = DialogClientRect.bottom - StaticTextRect.bottom;
