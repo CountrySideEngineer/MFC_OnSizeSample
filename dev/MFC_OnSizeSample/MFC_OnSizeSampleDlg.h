@@ -48,6 +48,9 @@ protected:
 	CRect	m_RightButtonRect;
 	CRect	m_LeftButtonRect;
 
+	int m_WidthMin;
+	int m_HeightMin;
+
 	int m_RightBtnHOffset;	//右ボタンの画面右側からのオフセット(ウィンドウ領域)
 	int m_RightBtnVOffset;	//右ボタンの画面下側からのオフセット(ウィンドウ領域)
 	int m_RightBtnWidth;	//右ボタンのボタンの幅
@@ -83,4 +86,5 @@ protected:
 
 public:
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
+	afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
 };

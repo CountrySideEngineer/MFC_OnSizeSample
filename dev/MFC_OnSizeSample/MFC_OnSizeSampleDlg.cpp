@@ -40,6 +40,7 @@ BEGIN_MESSAGE_MAP(CMFCOnSizeSampleDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SIZE()
 	ON_WM_SHOWWINDOW()
+	ON_WM_GETMINMAXINFO() // // <- 追加
 END_MESSAGE_MAP()
 
 
@@ -64,6 +65,11 @@ BOOL CMFCOnSizeSampleDlg::OnInitDialog()
 	 *	このとき、必ずクライアント領域の値を算出すること。
 	 *	MoveWindow()では、クライアント領域の位置を指定するため
 	 */
+	CRect DialogWinRect = { 0, 0, 0, 0 };
+	this->GetWindowRect(&DialogWinRect);
+	this->m_WidthMin = DialogWinRect.right - DialogWinRect.left;
+	this->m_HeightMin = DialogWinRect.bottom - DialogWinRect.top;
+
 	CRect DialogClientRect = { 0, 0, 0, 0 };
 	this->GetClientRect(&DialogClientRect);
 
@@ -109,7 +115,7 @@ BOOL CMFCOnSizeSampleDlg::OnInitDialog()
 	CRect StaticTextRect = { 0, 0, 0, 0 };
 	this->m_StaticEditSample.GetWindowRect(&StaticTextRect);
 	this->ScreenToClient(&StaticTextRect);
-	//this->m_StaticTextTop = StaticTextRect.top - DialogClientRect.top;
+	this->m_StaticTextTop = StaticTextRect.top - DialogClientRect.top;
 	this->m_StaticTextLeft = StaticTextRect.left - DialogClientRect.left;
 	this->m_StaticTextHOffset = DialogClientRect.right - StaticTextRect.right;
 	this->m_StaticTextVOffset = DialogClientRect.bottom - StaticTextRect.bottom;
@@ -217,4 +223,15 @@ void CMFCOnSizeSampleDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 	if (FALSE == this->m_IsShowWindow) {
 		this->m_IsShowWindow = bShow;
 	}
+}
+
+void CMFCOnSizeSampleDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
+{
+	if (NULL == lpMMI) {
+		return;
+	}
+	lpMMI->ptMinTrackSize.x = this->m_WidthMin;
+	lpMMI->ptMinTrackSize.y = this->m_HeightMin;
+
+	CDialog::OnGetMinMaxInfo(lpMMI);
 }
